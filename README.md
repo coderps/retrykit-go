@@ -1,13 +1,13 @@
-# retrykit
+# retrykit-go
 
-`retrykit` is a tiny, idiomatic Go library for retrying operations with simple, safe defaults.
+`retrykit-go` is a tiny, idiomatic Go library for retrying operations with simple, safe defaults.
 
-It is intentionally small: one main function, a few options, and basic backoff strategies. It is meant to be easy to understand and useful within a few minutes, not a full retry framework.
+It is intentionally small and named `retrykit-go` to distinguish it from sibling implementations such as `retrykit-py`: one main function, a few options, and basic backoff strategies. It is meant to be easy to understand and useful within a few minutes, not a full retry framework.
 
 ## Installation
 
 ```sh
-go get github.com/praxthedev/retrykit
+go get github.com/coderps/retrykit-go
 ```
 
 ## Quick start
@@ -18,7 +18,7 @@ package main
 import (
     "context"
 
-    "github.com/praxthedev/retrykit"
+    "github.com/coderps/retrykit-go"
 )
 
 func main() {
@@ -33,7 +33,7 @@ func main() {
 }
 ```
 
-By default, `retrykit` tries an operation up to 3 times, including the initial attempt. It uses exponential backoff and does not retry `context.Canceled` or `context.DeadlineExceeded`.
+By default, `retrykit-go` tries an operation up to 3 times, including the initial attempt. It uses exponential backoff and does not retry `context.Canceled` or `context.DeadlineExceeded`.
 
 ## Context-aware retries
 
@@ -121,7 +121,7 @@ err := retrykit.Do(ctx, operation,
 )
 ```
 
-`retrykit` does not log by itself.
+`retrykit-go` does not log by itself.
 
 ## Error handling
 
@@ -160,7 +160,7 @@ Non-retryable errors are returned directly, and context cancellation returns the
 
 ## Non-goals
 
-`retrykit` intentionally does not include:
+`retrykit-go` intentionally does not include:
 
 - HTTP-specific helpers.
 - Database-specific helpers.
